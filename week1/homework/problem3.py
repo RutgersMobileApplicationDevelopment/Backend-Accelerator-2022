@@ -4,6 +4,8 @@
 #       - One for loop should print out items using a range and getting items of the list by number
 # (slides 15, 19, and 20 should be helpful)
 
+my_list = ["abc","def","hij","klm","nop"]
+
 # write your solution after this line
 
 # write your solution before this line
