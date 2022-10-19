@@ -1,4 +1,4 @@
-class Vector2():
+class Vector2:
     def __init__(self, x, y):
         self.x = x
         self.y = y
@@ -13,6 +13,11 @@ class Vector2():
 
     def distance(self, other):
         return ((self.x - other.x)**2 + (self.y - other.y)**2)**0.5
+
+def vec2_example():
+    pass
+
+# vec2_example()
 
 class Student():
     def __init__(self, name, age, major):
@@ -33,3 +38,6 @@ students = [
     Student("Amy",  18, "BAIT"),
     Student("Isha", 21, "Computer Science")
 ]
+
+def stud_example():
+    pass

@@ -1,4 +1,4 @@
-# show_examples(0)
+# # show_examples(0)
 def add_two_numbers(x, y):
     return x + y
 
@@ -9,12 +9,13 @@ def summation_1_to_n(n):
     return summation
 
 # show_examples(1)
-def set_all_zero(input_list):
+def half_all(input_list):
     for i in range(len(input_list)):
-        input_list[i] = 0
+        input_list[i] /= 2
 
 ex_list = [1,2,3,4,5]
-set_all_zero(ex_list) # [0, 0, 0, 0, 0]
+half_all(ex_list)
+print(ex_list)
 
 # show_examples(2)
 valid_logins = {
@@ -27,4 +28,4 @@ def login(username, password):
         if valid_logins[username] == password:
             return True
 
-    return False
+#     return False
