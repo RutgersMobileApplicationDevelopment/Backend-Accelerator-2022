@@ -8,7 +8,8 @@ def main():
     # list_append_example()
     # list_insert_example()
     # list_remove_example()
-    # list_pop_example()
+    list_pop_example()
+    # list_extend_example()
     pass
 
 def list_append_example():
@@ -30,6 +31,12 @@ def list_insert_example():
     print("pear\t",ins_list)
     ins_list.insert(1,"guava")
     print("guava\t",ins_list)
+
+def list_extend_example():
+    ins_list = ["apple","cherries","banana","orange","grapes"]
+    app_list = ["apple",1,"orange",True,"grapes"]
+
+    ins_list.extend(app_list)
 
 
 def list_remove_example():
