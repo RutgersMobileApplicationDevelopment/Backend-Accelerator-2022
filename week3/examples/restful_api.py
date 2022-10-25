@@ -1,17 +1,18 @@
 from flask import Flask, send_file
-from flask_restx import reqparse, abort, Api, Resource
+from flask_restx import reqparse, Api, Resource
 
 app = Flask(__name__)
 api = Api(doc=False)
 api.init_app(app)
 
-@api.route("/index")
-class Index(Resource):
-   def get(self):
+
+@app.route("/index")
+def index():
     return send_file("index2.html")
 
+
 data = {
-    "fruits":   ["apple","cherry", "grape", "watermelon"],
+    "fruits":   ["apple", "cherry", "grape", "watermelon"],
     "cars":     ["ford f150", "toyota RAV4", "honda accord"],
     "jobs":     ["professor", "software engineer", "accountant"],
 }
@@ -19,6 +20,7 @@ data = {
 parser = reqparse.RequestParser()
 parser.add_argument("key")
 parser.add_argument("value")
+
 
 class Group(Resource):
     def get(self):
@@ -30,7 +32,7 @@ class Group(Resource):
             if group_name in data:
                 return data[group_name], 200
             else:
-                return {"message":"Could not find group for specified key","status":400}
+                return {"message": "Could not find group for specified key", "status": 400}
 
     def post(self):
         args = parser.parse_args()
@@ -38,13 +40,14 @@ class Group(Resource):
         if key in data:
             if not value in data[key]:
                 data[key].append(value)
-                return {"message":"Resource was successfully added to group","statusCode":200}
+                return {"message": "Resource was successfully added to group", "statusCode": 200}
             else:
-                return {"message":"This resource already exists within the specified group.", "status":400}
+                return {"message": "This resource already exists within the specified group.", "status": 400}
         else:
-            return {"message":"Could not find group for specified key","status":400}
+            return {"message": "Could not find group for specified key", "status": 400}
+
 
 api.add_resource(Group, '/groups')
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0",debug=True)
+    app.run(host="0.0.0.0", debug=True)
