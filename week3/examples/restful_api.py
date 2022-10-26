@@ -48,6 +48,7 @@ class Group(Resource):
 
 
 api.add_resource(Group, '/groups')
+#api.add_resource(Group, '/groups/<string:name>')
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", debug=True)

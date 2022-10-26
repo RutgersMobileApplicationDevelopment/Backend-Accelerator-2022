@@ -6,7 +6,7 @@ def hello_world():
    return "hello"
 
 @app.route("/")
-def hello_world():
+def index():
    return "index"
 
 if __name__ == "__main__":

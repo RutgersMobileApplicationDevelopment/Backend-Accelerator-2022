@@ -22,14 +22,14 @@ def get(key):
         return ", ".join(data[key])
     return "Invalid key"
 
-@app.route("/post/", methods=["POST"])
+@app.route("/post", methods=["POST"])
 def post():
     key, value = request.form["key"], request.form["value"]
     if key in data:
         data[key].append(value)
     else:
         data[key] = [value]
-    return redirect(url_for('index'))
+    return redirect(url_for("index"))
 
 if __name__ == "__main__":
    app.run(host="0.0.0.0",debug=True)
