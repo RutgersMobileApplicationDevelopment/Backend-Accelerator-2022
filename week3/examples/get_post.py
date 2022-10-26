@@ -11,7 +11,7 @@ def hello(name):
     return f"Hello <b>{name}</b>!"
 
 data = {
-    "fruits":   ["apple","cherry", "grape", "watermelon"],
+    "fruits":   ["apple","cherry", "grape", "watermelon"],  
     "cars":     ["ford f150", "toyota RAV4", "honda accord"],
     "jobs":     ["professor", "software engineer", "accountant"],
 }
@@ -32,6 +32,6 @@ def post():
     return redirect(url_for('index'))
 
 if __name__ == "__main__":
-   app.run(host="0.0.0.0")
+   app.run(host="0.0.0.0",debug=True)
 
 # firefox "$(hostname -I | xargs):5000/"
