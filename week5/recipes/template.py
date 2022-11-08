@@ -7,7 +7,7 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///example.sqlite"
 
 db = SQLAlchemy(app)
 
-api = Api(doc=False)
+api = Api()
 api.init_app(app)
 
 class RecipeModel(db.Model):
@@ -21,10 +21,25 @@ with app.app_context():
     db.create_all()
 
 class RecipeResource(Resource):
-    def get():
+    # Create request parser and add arguments
+
+    def get(self):
+        # Parse arguments
+        # Verify that "id" is in arguments
+        # - if "id" is in arguments, then get it
+        # If we weren't able to set recipe, then abort(400, "msg")
         pass
 
-    def post():
+    def post(self):
+        # Parse arguments
+        # Verify that all fields exist (name, ingredients, poster)
+
+        # Create a recipe from the given fields
+        
+        # Add this recipe to the database and return success
+        # However, we must handle exceptions
+        # If we come across any unexpected behavior, abort(500)
+
         pass
 
 api.add_resource(RecipeResource, '/recipes')
