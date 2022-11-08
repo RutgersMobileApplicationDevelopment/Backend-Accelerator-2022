@@ -28,22 +28,24 @@ with app.app_context():
 
     # db.session.delete(RecipeModel(...))
 
+    ### update a resource
     ### from https://stackoverflow.com/a/6701188
-    # admin = User.query.filter_by(username='admin').first()
+    # recipe = User.query.filter_by(name='admin').first()
     # admin.email = 'my_new_email@example.com'
     # db.session.commit()
-
-    # user = User.query.get(5)
-    # user.name = 'New Name'
+    
+    ### query for a resource by primary key
+    # recipe = RecipeModel.query.get(5)
+    # recipe.name = 'New name'
     # db.session.commit()
 
-    db.session.commit()
+    ### get RecipeModel using filter_by function
 
-    # get RecipeModel using filter_by function
-    
     # queries can return multiple, so get the first!
     # if we want all, we use .all() instead
-    # RecipeModel.query.filter_by(id=1).first()
+    
+    # recipe = RecipeModel.query.filter_by(id=1).first()
+    # recipes_by_john = RecipeModel.query.filter_by(poster="John Doe").all()
 
     # get RecipeModel by primary key
     # RecipeModel.query.get(1)
