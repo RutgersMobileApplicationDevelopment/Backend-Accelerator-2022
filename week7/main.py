@@ -77,6 +77,24 @@ def get_post(post_id):
     else:
         return redirect("/dashboard")
 
+@app.route("/browse")
+def browse():
+    post_models = PostModel.query.limit(10).all()
+    transformed_posts = []
+    if post_models:
+        for post in post_models:
+            transformed_posts.append({
+                "title": post.title,
+                "poster": post.poster,
+                "id": post.id,
+            })
+        
+        print(transformed_posts)
+
+    return render_template("browse.html",
+        posts = transformed_posts
+    )
+
 def generateSessionForUser( username ):
     if SessionModel.query.filter_by(username = username):
         SessionModel.query.filter_by(username=username).delete()

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Forum - Browse</title>
+        <style>
+            table, th, td {
+                border: 1px solid black;
+                text-align: left;
+            }
+
+            .post-title {
+                min-width: 8rem;
+            }
+
+            .post-author {
+                min-width: 4rem;
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <th>Author</th>
+                <th>Title</th>
+            </tr>
+            {% for post in posts %}
+                <tr>
+                    <td class="post-author">
+                        <p>{{post["poster"]}}</p>
+                    </td>
+                    <td class="post-title">
+                        <a href="/posts/{{post['id']}}">
+                            <p>{{post["title"]}}</p>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>
